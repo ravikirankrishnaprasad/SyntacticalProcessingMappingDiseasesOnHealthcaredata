@@ -2,6 +2,57 @@
 
 This repository contains a machine learning project that focuses on building a custom Named Entity Recognition (NER) model to identify **Diseases** and **Treatments** from medical text data. The objective is to extract all predicted treatments corresponding to diseases using a Conditional Random Fields (CRF) model.
 
+## 🧠 Problem Statement
+
+This project simulates a real-world scenario in a health tech company called **BeHealthy**, which provides online consultations, e-prescriptions, and appointment management. The company generates a large volume of unstructured medical text daily, including doctor notes, therapy reviews, and consultation records.
+
+The goal is to develop a **custom Named Entity Recognition (NER)** system capable of extracting **disease-treatment pairs** from medical text. For example, from a sentence like:
+
+> *"The patient was a 62-year-old man with squamous cell lung cancer, which was first successfully treated by a combination of radiation therapy and chemotherapy."*
+
+The system should identify:
+```python
+{'cancer': 'chemotherapy'}
+```
+
+However, these relationships are **not explicitly labeled** in the text. You'll build a model using **Conditional Random Fields (CRF)** to classify each word as either:
+- `D`: Disease
+- `T`: Treatment
+- `O`: Other
+
+---
+
+## 📦 Dataset Overview
+
+The dataset includes:
+
+- `train_sent`, `test_sent`: Lists of words for each sentence, with one word per line
+- `train_label`, `test_label`: Corresponding labels (`O`, `D`, `T`) for each word
+
+Each sentence is separated by a blank line. You'll need to preprocess this format to convert it into complete sentences and their label sequences.
+
+---
+
+## 🎯 Project Objective
+
+- Preprocess and format word- and label-level data into sentence form
+- Extract features for each word (e.g., part-of-speech, capitalization, prefixes/suffixes)
+- Train a **CRF model** to label diseases and treatments
+- Evaluate the model on a test set
+- Create a dictionary mapping **diseases to their likely treatments**
+
+---
+
+## 🛠️ Technologies Used
+
+- Python
+- scikit-learn
+- sklearn-crfsuite
+- NLTK
+- Jupyter Notebook
+
+---
+
 ## Table of Contents
 - [Overview](#overview)
 - [Dataset](#dataset)
